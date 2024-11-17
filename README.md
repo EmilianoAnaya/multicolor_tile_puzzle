@@ -13,7 +13,7 @@ python -m venv .venv
 
 ### Bash:
 ```bash
-source .venv/Scripts/activate
+source .venv/bin/activate
 ```
 
 ## Librerias usadas para el proyecto
