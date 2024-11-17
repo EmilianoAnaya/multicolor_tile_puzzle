@@ -29,7 +29,7 @@ while pygame.mixer.music.get_busy() or running:
     # Manejo de eventos
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            running = False
+            pygame.mixer.music.stop()
         
         elif event.type == pygame.KEYDOWN:
             # Movimiento del jugador
