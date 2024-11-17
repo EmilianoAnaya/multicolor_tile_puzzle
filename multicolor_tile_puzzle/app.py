@@ -18,13 +18,14 @@ actual_state = 0
 player_pos = [0, 1] # Posición inicial del jugador (columna, fila)
 
 # Controlar la música del juego
-pygame.mixer.music.load(Songs.MAIN_THEME)
+pygame.mixer.music.load(Songs.MAIN_THEME.value)
 pygame.mixer.music.play()
+pygame.mixer.music.set_volume(0.2)
 
 
 # Control del juego
-running = True
-while running:
+running = False
+while pygame.mixer.music.get_busy() or running:
     # Manejo de eventos
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -52,8 +53,17 @@ while running:
                 player_pos[0] = STATES[actual_state][0][0] 
                 player_pos[1] = STATES[actual_state][0][1]
 
-        elif STATES[actual_state] == 32:
+        elif actual_state == 32:
+            running = True
             pygame.mixer.music.stop() 
+            pygame.mixer.music.load(Songs.VICTORY_THEME.value)
+            pygame.mixer.music.play()
+            pygame.mixer.music.set_volume(0.2)
+
+            while pygame.mixer.music.get_busy():
+                pygame.time.Clock().tick(10)
+
+            running = False
 
     # Dibujar en la pantalla
     for row in range(rows):
