@@ -23,14 +23,15 @@ pygame.mixer.music.play()
 pygame.mixer.music.set_volume(0.2)
 
 # Control de Test de cadenas
-auto_moves = "RDRDLLRDLRURURUUDL"
-testing_game = True
+auto_moves = "DRUUUDDLDUDDRRDLUDRUURURLD"
+testing_game = False
+flag_while = False
 
 # Control del juego
 running = False
 while pygame.mixer.music.get_busy() or running:
     # Manejo de eventos
-    if testing_game:
+    if testing_game and flag_while:
         for char in auto_moves:
             if char == "R":
                 actual_state = STATES[actual_state][2]
@@ -85,8 +86,10 @@ while pygame.mixer.music.get_busy() or running:
 
             while pygame.mixer.music.get_busy():
                 pygame.time.Clock().tick(10)
-
             running = False
+            break
+        
+        flag_while = True
 
     # Dibujar en la pantalla
     for row in range(rows):
