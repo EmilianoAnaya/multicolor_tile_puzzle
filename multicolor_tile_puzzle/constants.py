@@ -2,8 +2,8 @@ from enum import Enum
 
 # Ruta de canciones
 class Songs(Enum):
-    MAIN_THEME = 'multicolor_tile_puzzle/resources/oh-dungeon.mp3'
-    VICTORY_THEME = "multicolor_tile_puzzle/resources/Hyes_short.wav"
+    MAIN_THEME = "resources/oh-dungeon.mp3"
+    VICTORY_THEME = "resources/Hyes_short.wav"
 
 # Color de jugador
 PLAYER_COLOR = (255,255,255)
