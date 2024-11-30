@@ -1,3 +1,4 @@
 .venv/
 test.py
 Reporte_Final/
+__pycache__/
